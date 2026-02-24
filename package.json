@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm exec -- vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit -p tsconfig.app.json"
+    "typecheck": "tsc --noEmit -p tsconfig.app.json",
+    "postinstall": "node -e \"if (process.platform !== 'win32') require('child_process').execSync('chmod +x node_modules/.bin/vite');\""
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.4",
